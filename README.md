@@ -47,3 +47,7 @@ A README must be providing detailing:
 - detailed deploy process (preferable with a Dockerfile), so that we can reproduce the deploy in our in-premises systems.
 
 Please note that we will need an invoice for the paid amount.
+
+# Deploy
+
+Deploy is done to Heroku: https://dashboard.heroku.com/teams/cactea/overview
