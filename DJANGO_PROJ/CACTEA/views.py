@@ -780,7 +780,10 @@ def populate_database():
     from .models import cactea
     from os import chdir
     # path = chdir('D:\\FREELANCER\\DjangoProjectGamma\\DIRECTORY\\CACTEA\\data')
-    with open('D:\\FREELANCER\\DjangoProjectGamma\\DIRECTORY\\CACTEA\\data\\new_storage.csv') as csvfile:
+    CSV_FILE = 'D:\\FREELANCER\\DjangoProjectGamma\\DIRECTORY\\CACTEA\\data\\new_storage.csv'
+    CSV_FILE = 'DJANGO_PROJ/CACTEA/templates/new_storage.csv'
+    cnt = 0
+    with open(CSV_FILE) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             p = cactea(id_IT = row['id'], SERIAL_NUMBER = row['SERIAL_NUMBER'], MANUFACTURER = row['MANUFACTURER'], 
@@ -797,9 +800,11 @@ def populate_database():
             STORAGE_TYPE = row['STORAGE_TYPE'], READADMIN = row['READADMIN'], RACK = row['RACK'], 
             COST_CENTER = row['COST_CENTER'], CO2_KG = row['CO2_KG'], SECOND_INVESTMENT_DATE = row['SECOND_INVESTMENT_DATE'])
             p.save()
+            cnt += 1
+    print('Created {} records'.format(cnt))
 
 
-populate_database() 
+populate_database()
 
 
 
