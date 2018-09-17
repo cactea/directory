@@ -14,10 +14,9 @@
     <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet">
 
     <link href="{% static 'css/plugins/dataTables/datatables.min.css' %}" rel="stylesheet">
-
+    <link href="{% static 'css/plugins/dataTables/dataTables.checkboxes.css' %}" rel="stylesheet">
     <link href="{% static 'css/animate.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
 </head>
 
 <body>
@@ -443,10 +442,9 @@
 <script src="{% static 'js/bootstrap.js' %}"></script>
 <script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
 <script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
-
 <script src="{% static 'js/plugins/dataTables/datatables.min.js' %}"></script>
 <script src="{% static 'js/plugins/dataTables/dataTables.bootstrap4.min.js' %}"></script>
-
+<script src="{% static 'js/plugins/dataTables/dataTables.checkboxes.min.js' %}"></script>
 <!-- Custom and plugin javascript -->
 <script src="{% static 'js/inspinia.js' %}"></script>
 <script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
@@ -520,12 +518,14 @@
                 'targets': 0,
                 'searchable': false,
                 'orderable': false,
-                'className': 'dt-body-center',
-                'render': function (data, type, full, meta){
-                    return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
-                }
-            }],
-            'order': [[1, 'asc']]
+                'checkboxes': {
+                    'selectRow': true,
+                },
+               }],
+            'select': {
+                'style': 'multi',
+            },
+            'order': [[1, 'asc']],
         });
         // Handle click on "Select all" control
         $('#example-select-all').on('click', function(){
