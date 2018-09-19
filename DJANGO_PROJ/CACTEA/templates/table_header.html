@@ -20,8 +20,9 @@
 </head>
 
 <body>
-        <div id="wrapper">
-                <nav class="navbar-default navbar-static-side" role="navigation">
+
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
                     <div class="sidebar-collapse">
                         <ul class="nav metismenu" id="side-menu">
                             <li class="nav-header">
@@ -256,8 +257,8 @@
             
                     </div>
                 </nav>
-                <div id="page-wrapper" class="gray-bg dashbard-1">
-                        <div class="row border-bottom">
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
                         <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                         <div class="navbar-header">
                             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
@@ -382,7 +383,7 @@
                         </nav>
 
                     </div>
-                    <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="row wrapper border-bottom white-bg page-heading">
                         <div class="col-lg-10">
                             <h2>Data Tables</h2>
                             <ol class="breadcrumb">
@@ -401,10 +402,10 @@
         
                         </div>
                     </div>
-                <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="wrapper wrapper-content animated fadeInRight">
                     <div class="row">
                         <div class="col-lg-12">
-                        <div class="ibox ">
+                            <div class="ibox ">
                             <div class="ibox-title">
                                 <h5>Basic Data Tables example with responsive plugin</h5>
                                 <!--<div class="ibox-title container-left">
@@ -436,138 +437,157 @@
                             <!--Table container enters here...-->
                             {% block content %}{% endblock %}
 
-<!-- Mainly scripts -->
-<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
-<script src="{% static 'js/popper.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.js' %}"></script>
-<script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
-<script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
-<script src="{% static 'js/plugins/dataTables/datatables.min.js' %}"></script>
-<script src="{% static 'js/plugins/dataTables/dataTables.bootstrap4.min.js' %}"></script>
-<script src="{% static 'js/plugins/dataTables/dataTables.checkboxes.min.js' %}"></script>
-<!-- Custom and plugin javascript -->
-<script src="{% static 'js/inspinia.js' %}"></script>
-<script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="footer">
+            <div class="float-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2018
+            </div>
+        </div>
+        </div>
+    </div>
 
-<!-- Page-Level Scripts -->
+    <!-- Mainly scripts -->
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/datatables.min.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables/dataTables.checkboxes.min.js' %}"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'js/inspinia.js' %}"></script>
+    <script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
 
-<script>
-    $(document).ready(function(){
-        $('#example').DataTable({
-            "serverSide": true,
-            "ajax": "/api/CACTEA/?format=datatables",
-            "pageLength": 70,
-            "responsive": true,
-            "columns": [
-                {"data": "id_IT"},
-                {"data": "SERIAL_NUMBER"},
-                {"data": "MANUFACTURER"},
-                {"data": "NAME"},
-                {"data": "MODEL"},
-                {"data": "LOCATION"},
-                {"data": "ROOM"},
-                {"data": "ENERGY_CONSUMPTION"},
-                {"data": "BTU"},
-                {"data": "MICROCODE"},
-                {"data": "PATCH_LEVEL"},
-                {"data": "CUSTOMER_ID"},
-                {"data": "HOSTS_APPLICATION"},
-                {"data": "TCPADDR1"},
-                {"data": "TCPADDR2"},
-                {"data": "TCPADDR3"},
-                {"data": "SW_GUI"},
-                {"data": "INVESTMENT_DATE"},
-                {"data": "MAINTENANCE_EXPIRATION_DATE"},
-                {"data": "MAINTENANCE_PROVIDER"},
-                {"data": "MAINTENANCE_CONTRACT"},
-                {"data": "IS_EXTENSION_REQUIRED"},
-                {"data": "IS_MIGRATION_REQUIRED"},
-                {"data": "RAID_CONFIG"},
-                {"data": "USABLE_CAPACITY_GB"},
-                {"data": "CAPACITY_IN_USE_GB"},
-                {"data": "FREE_CAPACITY_GB"},
-                {"data": "EXTENSION"},
-                {"data": "COMMENT_1"},
-                {"data": "STORAGE_TYPE"},
-                {"data": "READADMIN"},
-                {"data": "RACK"},
-                {"data": "COST_CENTER"},
-                {"data": "CO2_KG"},
-                {"data": "SECOND_INVESTMENT_DATE"},
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function(){
+            $('#example').DataTable({
+                "serverSide": true,
+                "ajax": "/api/CACTEA/?format=datatables",
+                "pageLength": 70,
+                "responsive": true,
+                "columns": [
+                    {"data": "id_IT"},
+                    {"data": "SERIAL_NUMBER"},
+                    {"data": "MANUFACTURER"},
+                    {"data": "NAME"},
+                    {"data": "MODEL"},
+                    {"data": "LOCATION"},
+                    {"data": "ROOM"},
+                    {"data": "ENERGY_CONSUMPTION"},
+                    {"data": "BTU"},
+                    {"data": "MICROCODE"},
+                    {"data": "PATCH_LEVEL"},
+                    {"data": "CUSTOMER_ID"},
+                    {"data": "HOSTS_APPLICATION"},
+                    {"data": "TCPADDR1"},
+                    {"data": "TCPADDR2"},
+                    {"data": "TCPADDR3"},
+                    {"data": "SW_GUI"},
+                    {"data": "INVESTMENT_DATE"},
+                    {"data": "MAINTENANCE_EXPIRATION_DATE"},
+                    {"data": "MAINTENANCE_PROVIDER"},
+                    {"data": "MAINTENANCE_CONTRACT"},
+                    {"data": "IS_EXTENSION_REQUIRED"},
+                    {"data": "IS_MIGRATION_REQUIRED"},
+                    {"data": "RAID_CONFIG"},
+                    {"data": "USABLE_CAPACITY_GB"},
+                    {"data": "CAPACITY_IN_USE_GB"},
+                    {"data": "FREE_CAPACITY_GB"},
+                    {"data": "EXTENSION"},
+                    {"data": "COMMENT_1"},
+                    {"data": "STORAGE_TYPE"},
+                    {"data": "READADMIN"},
+                    {"data": "RACK"},
+                    {"data": "COST_CENTER"},
+                    {"data": "CO2_KG"},
+                    {"data": "SECOND_INVESTMENT_DATE"},
 
-            ],
-            "dom": '<"html5buttons"B>lTfgitp',
-            "buttons": [
-                { extend: 'copy'},
-                {extend: 'csv'},
-                {extend: 'excel', title: 'ExampleFile'},
-                {extend: 'pdf', title: 'ExampleFile'},
+                ],
+                "dom": '<"html5buttons"B>lTfgitp',
+                "buttons": [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
 
-                {extend: 'print',
-                 customize: function (win){
-                        $(win.document.body).addClass('white-bg');
-                        $(win.document.body).css('font-size', '10px');
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
 
-                        $(win.document.body).find('table')
-                                .addClass('compact')
-                                .css('font-size', 'inherit');
-                }
-                }
-            ],
-            'columnDefs': [{
-                'targets': 0,
-                'searchable': false,
-                'orderable': false,
-                'checkboxes': {
-                    'selectRow': true,
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ],
+                'columnDefs': [{
+                    'targets': 0,
+                    'searchable': false,
+                    'orderable': false,
+                    'checkboxes': {
+                        'selectRow': true,
+                    },
+                   }],
+                'select': {
+                    'style': 'multi',
                 },
-               }],
-            'select': {
-                'style': 'multi',
-            },
-            'order': [[1, 'asc']],
-        });
-        // Handle click on "Select all" control
-        $('#example-select-all').on('click', function(){
-            // Check/uncheck all checkboxes in the table
-            var rows = table.rows({ 'search': 'applied' }).nodes();
-            $('input[type="checkbox"]', rows).prop('checked', this.checked);
-        });
+                'order': [[1, 'asc']],
+            });
+            // Handle click on "Select all" control
+            $('#example-select-all').on('click', function(){
+                // Check/uncheck all checkboxes in the table
+                var rows = table.rows({ 'search': 'applied' }).nodes();
+                $('input[type="checkbox"]', rows).prop('checked', this.checked);
+            });
 
-        // Handle click on checkbox to set state of "Select all" control
-        $('#example tbody').on('change', 'input[type="checkbox"]', function(){
-            // If checkbox is not checked
-            if(!this.checked){
-                var el = $('#example-select-all').get(0);
-                // If "Select all" control is checked and has 'indeterminate' property
-                if(el && el.checked && ('indeterminate' in el)){
-                    // Set visual state of "Select all" control 
-                    // as 'indeterminate'
-                    el.indeterminate = true;
-                }
-            }
-        });
-
-        // Handle form submission event
-        $('#frm-example').on('submit', function(e){
-            var form = this;
-
-            // Iterate over all checkboxes in the table
-            table.$('input[type="checkbox"]').each(function(){
-                // If checkbox doesn't exist in DOM
-                if(!$.contains(document, this)){
-                    // If checkbox is checked
-                    if(this.checked){
-                    // Create a hidden element
-                    $(form).append(
-                        $('<input>')
-                            .attr('type', 'hidden')
-                            .attr('name', this.name)
-                            .val(this.value)
-                    );
+            // Handle click on checkbox to set state of "Select all" control
+            $('#example tbody').on('change', 'input[type="checkbox"]', function(){
+                // If checkbox is not checked
+                if(!this.checked){
+                    var el = $('#example-select-all').get(0);
+                    // If "Select all" control is checked and has 'indeterminate' property
+                    if(el && el.checked && ('indeterminate' in el)){
+                        // Set visual state of "Select all" control
+                        // as 'indeterminate'
+                        el.indeterminate = true;
                     }
                 }
             });
+
+            // Handle form submission event
+            $('#frm-example').on('submit', function(e){
+                var form = this;
+
+                // Iterate over all checkboxes in the table
+                table.$('input[type="checkbox"]').each(function(){
+                    // If checkbox doesn't exist in DOM
+                    if(!$.contains(document, this)){
+                        // If checkbox is checked
+                        if(this.checked){
+                        // Create a hidden element
+                        $(form).append(
+                            $('<input>')
+                                .attr('type', 'hidden')
+                                .attr('name', this.name)
+                                .val(this.value)
+                        );
+                        }
+                    }
+                });
+            });
         });
-    });
-</script>
+    </script>
+
+</body>
+
+</html>
