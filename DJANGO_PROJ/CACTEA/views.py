@@ -760,16 +760,6 @@ class export_excel(TemplateView):
         return response
 
 
-
-#Serialization junction
-from .serializers import CacteaSerializer
-from rest_framework import viewsets
-
-class CacteaViewSet(viewsets.ModelViewSet):
-    queryset = cactea.objects.all()
-    serializer_class = CacteaSerializer  
-
-
 class table_foo_table(TemplateView):
     """docstring for table_foo_table."""
     template_name = 'table_data_tables.html'

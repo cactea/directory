@@ -1,11 +1,12 @@
 from django.conf.urls import url, include
-from . import views
 from rest_framework.routers import DefaultRouter
-from CACTEA import views
 from rest_framework import routers
 
+from . import views
+from .api import CacteaViewSet
+
 router = DefaultRouter()
-router.register('CACTEA', views.CacteaViewSet)
+router.register('CACTEA', CacteaViewSet)
 
 urlpatterns = [
 	url('^$', views.index.as_view(), name = 'index'),
