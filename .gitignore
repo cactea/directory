@@ -104,3 +104,6 @@ venv.bak/
 .mypy_cache/
 *~
 Makefile
+
+DJANGO_PROJ/CACTEA/static/
+.idea/
