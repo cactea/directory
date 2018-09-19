@@ -730,7 +730,18 @@ class table_data_tables(TemplateView):
         cac = cactea.objects.all()
         table = CacteaTable(cac, order_by_field = 'sort')
         if request.method == 'GET':
-            return render(request, self.template_name, {'table': cac})
+            return render(request, self.template_name, {
+                'page_title': 'Storage Asset Inventory',
+                'welcome_message': 'Welcome to Storage Asset Inventory',
+                'profile': {
+                    'full_name': 'Daniel Gonzalez',
+                    'position': 'Freelancer',
+                    'avatar': 'img/profile_small.jpg',
+                },
+                'table': cac,
+                'copyright': 'Metronom &copy; 2014-2018',
+                'footer_right': 'Metronom GmbH',
+            })
 
 #export csv
 class export_csv(TemplateView):
