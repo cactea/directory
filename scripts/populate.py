@@ -6,21 +6,12 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DIRECTORY.settings')
 import django
 django.setup()
 
-
 from CACTEA.models import cactea
 
 
-'''
-Populate database:
-Note that the database am populating here is the heroku database.
-You would have to change the credentials in setting.py to
-populate an online database of your own.
-'''
-def populate_database():
-    CSV_FILE = 'D:\\FREELANCER\\DjangoProjectGamma\\DIRECTORY\\CACTEA\\data\\new_storage.csv'
-    CSV_FILE = 'CACTEA/templates/new_storage.csv'
+def populate_database(csv_file):
     cnt = 0
-    with open(CSV_FILE) as csvfile:
+    with open(csv_file) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             p = cactea(id_IT = row['id'], SERIAL_NUMBER = row['SERIAL_NUMBER'], MANUFACTURER = row['MANUFACTURER'],
@@ -41,4 +32,4 @@ def populate_database():
     print('Created {} records'.format(cnt))
 
 
-populate_database()
+populate_database('scripts/data.csv')
