@@ -1,0 +1,19 @@
+all:
+  vars:
+    ansible_user: ubuntu
+    ansible_python_interpreter: /usr/bin/python3
+    app_image_tag: preprod
+
+clusters:
+  hosts:
+    preprod.cluster.dgvmetro:
+    preprod.openstack.osmetro:
+  vars:
+    set_proxy: true
+    HTTP_PROXY: proxy.mgi.de:3128
+    NO_PROXY: storage.s3-hcp-dev.msys.net
+    DJANGO_SETTINGS_MODULE: DIRECTORY.settings
+    DJANGO_SECRET_KEY: 'b^)b!u(h)9$v3gdwn++pnctgfkx19&8)i%509@4cb&mom6s%qr'
+    SSP_DB_PASS: TODO
+    SENTRY_SECRET_KEY: TODO
+    SENTRY_DB_PASSWORD: TODO

@@ -1,0 +1,6 @@
+---
+
+- hosts: clusters
+  become: no
+  roles:
+    - ai

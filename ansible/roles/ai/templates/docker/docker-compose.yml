@@ -1,0 +1,37 @@
+version: '3'
+
+volumes:
+  pgdata:
+  webdata:
+
+services:
+
+  postgres:
+    restart: always
+    build: ./postgres/
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+
+  aiweb:
+    depends_on:
+      - postgres
+    restart: always
+    build:
+      context: ./web/
+      args:
+        - REGISTRY
+    environment:
+      DJANGO_SETTINGS_MODULE: {{ DJANGO_SETTINGS_MODULE }}
+      DJANGO_SECRET_KEY: {{ DJANGO_SECRET_KEY }}
+      DJ_DATABASE_URL: {{ DJ_DATABASE_URL }}
+      PERSISTENT_DIR: /var/lib/aiweb
+    command: ./run-gunicorn.sh
+    networks:
+      default:
+      nginxnet:
+    volumes:
+      - webdata:/var/lib/aiweb
+
+networks:
+  nginxnet:
+    external: true

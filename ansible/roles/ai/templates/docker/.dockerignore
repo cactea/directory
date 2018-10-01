@@ -1,0 +1,10 @@
+.idea
+.git*
+.cache
+.tox
+.tx
+__pycache__
+*.pyc
+node_modules/
+#deploy_static/
+*.sqlite3

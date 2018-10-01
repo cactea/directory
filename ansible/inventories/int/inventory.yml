@@ -1,0 +1,12 @@
+all:
+  vars:
+    ansible_user: metrodeploy
+    app_image_tag: int
+
+clusters:
+  hosts:
+    int.openstack.osmetro:
+  vars:
+    DJANGO_SETTINGS_MODULE: DIRECTORY.settings
+    DJANGO_SECRET_KEY: '23nt&^9=e8chx=sxs&a8=@i&f+gs2!+frza*hu7n!k+*+2dp4p'
+    DJ_DATABASE_URL: postgres://aiuser:aipass@postgres:5432/aidb

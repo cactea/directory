@@ -1,0 +1,35 @@
+---
+
+- name: Create deploy directory
+  file: path={{ deploy_dir }}/{{ app_image_tag }} state=directory
+
+- name: Create directories at destination
+  file:
+    state: directory
+    dest: '{{ deploy_dir }}/{{ app_image_tag }}/{{ item.path }}'
+  with_filetree: '../templates/docker'
+  when: item.state == 'directory'
+
+- name: Parse docker templates
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ deploy_dir }}/{{ app_image_tag }}/{{ item.path }}'
+  with_filetree: '../templates/docker'
+  when: item.state == 'file'
+
+# We need to make sure that images are really pulled from the repository when they change
+
+- name: Stop services
+  command: docker-compose -p {{ app }}_{{ app_image_tag }} down
+  args:
+    chdir: "{{ deploy_dir }}/{{ app_image_tag }}"
+
+- name: Pull and build services
+  command: docker-compose -p {{ app }}_{{ app_image_tag }} build --pull
+  args:
+    chdir: "{{ deploy_dir }}/{{ app_image_tag }}"
+
+- name: Start services
+  command: docker-compose -p {{ app }}_{{ app_image_tag }} up -d
+  args:
+    chdir: "{{ deploy_dir }}/{{ app_image_tag }}"

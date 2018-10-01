@@ -1,0 +1,19 @@
+all:
+  vars:
+    ansible_user: ubuntu
+    ansible_python_interpreter: /usr/bin/python3
+    app_image_tag: master
+
+clusters:
+  hosts:
+    prod.cluster.dgvmetro:
+    prod.openstack.osmetro:
+  vars:
+    set_proxy: true
+    HTTP_PROXY: proxy.mgi.de:3128
+    NO_PROXY: cloud.s3-hcp-prod.msys.net
+    DJANGO_SETTINGS_MODULE: DIRECTORY.settings
+    DJANGO_SECRET_KEY: 'j#$e3xyg+9ojc_efa^f!(_41wq-r1sz8-c41qrhp(=wjps8b$u'
+    SSP_DB_PASS: gQh4nvVejaHC5fBh
+    SENTRY_SECRET_KEY: 0gZc8uYU2A53SnN3exrPH973U3HdnSasxX7D8SyE9Oz6bUGbujbpQGJt6ZWhJHKd
+    SENTRY_DB_PASSWORD: J7zauVQ6WFnNMPnF
