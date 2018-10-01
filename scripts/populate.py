@@ -32,4 +32,5 @@ def populate_database(csv_file):
     print('Created {} records'.format(cnt))
 
 
-populate_database('scripts/data.csv')
+CSV_FILE = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data.csv')
+populate_database(CSV_FILE)

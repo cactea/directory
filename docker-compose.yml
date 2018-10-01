@@ -1,0 +1,41 @@
+version: '3'
+
+volumes:
+  pgdata:
+
+services:
+
+  postgres:
+    build: docker/postgres
+    ports:
+      # TODO: only needed for development. Maybe separate docker-compose.yml file for dev?
+      # I need to publish the port during development in order to allow access to the database from the host, to
+      #   prepare migrations. Also, I need to provide a dns entry "postgres", since that is the how the database is
+      #   located (which works fine in containers, as per docker-compose rules)
+      - "223.255.1.13:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+
+  aiweb:
+    restart: always
+    environment:
+      - DJANGO_SECRET_KEY=local
+    build:
+      context: ./
+      args:
+        - REGISTRY
+    command: ./run-gunicorn.sh
+    depends_on:
+      - postgres
+
+  nginx:
+    restart: always
+    build: docker/nginx
+    ports:
+      - "223.255.1.13:80:80"
+      - "223.255.1.13:443:443"
+      # - "0.0.0.0:80:80"
+      # - "0.0.0.0:443:443"
+    # command: nginx-debug -g "daemon off;"
+    depends_on:
+      - aiweb
