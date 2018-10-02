@@ -4,7 +4,7 @@
 
 # app_image_tag corresponds to CI_ENVIRONMENT_NAME
 
-FROM {{ REGISTRY }}/shp:{{ app_image_tag }}
+FROM {{ REGISTRY }}/ai:{{ app_image_tag }}
 
 LABEL maintainer="Metro Systems AG <d.gonzalezvalero@metronom-external.com>"
 
