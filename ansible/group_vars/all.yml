@@ -1,5 +1,3 @@
 ---
 
-deploy_dir: "/deploy/ai-deploy"
-REGISTRY: registry.dgvmetro
-set_proxy: false
+deploy_dir: "/deploy/ai"
